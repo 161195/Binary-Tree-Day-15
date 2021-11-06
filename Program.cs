@@ -6,7 +6,11 @@ namespace BinaryTreeDay15
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            createBST<int> binarySearchTree = new createBST<int>(56);
+            binarySearchTree.Insert(30);
+            binarySearchTree.Insert(70);
+            binarySearchTree.display();
+            Console.ReadLine();
         }
     }
 }
