@@ -71,7 +71,10 @@ namespace BinaryTreeDay15
                 this.RightTree.display();       //recursive call display method
             }
         }
-
+        public void GetSize()
+        {
+            Console.WriteLine("Size" + " " + (1 + this.leftCount + this.rightCount));
+        }
 
 
     }
