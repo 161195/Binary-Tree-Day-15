@@ -13,8 +13,8 @@ namespace BinaryTreeDay15
             get;
             set;
         }
-        public createBST<T> LeftTree //For LeftTree Generic getter and setter method use here. 
-        { 
+        public createBST<T> LeftTree  //For LeftTree Generic getter and setter method use here. 
+        {
             get;
             set;
         }
@@ -32,7 +32,7 @@ namespace BinaryTreeDay15
         }
         int leftCount = 0, rightCount = 0;
         bool result = false;
-
+       
         public void Insert(T item)
         {
             T currentNodeValue = this.NodeData;          //here create a tree type new node
@@ -59,13 +59,13 @@ namespace BinaryTreeDay15
 
         public void display()                   //here use Display
         {
-            if (this.LeftTree != null)          // till left tree is not 
+            if (this.LeftTree != null)          // till left tree is not null 
             {
                 this.leftCount++;               //here Count left Node 
                 this.LeftTree.display();        //recursive call display method
             }
             Console.WriteLine(this.NodeData.ToString());
-            if (this.RightTree != null)         // till right tree is not
+            if (this.RightTree != null)         // till right tree is not null
             {
                 this.rightCount++;              //here Count right Node
                 this.RightTree.display();       //recursive call display method
@@ -75,7 +75,33 @@ namespace BinaryTreeDay15
         {
             Console.WriteLine("Size" + " " + (1 + this.leftCount + this.rightCount));
         }
-
-
+        public bool IFExits(T element, createBST<T> Node)
+        {
+            if (Node == null)                             //node is null then false
+            {
+                return false;
+                
+            }
+            if (Node.NodeData.Equals(element))            //both search element find then return true "Equals Method"
+            {
+                Console.WriteLine("\n Fount the element in BST" + "" + Node.NodeData);
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("\n Current Element is {0} in BST", Node.NodeData);
+            }
+            if (element.CompareTo(Node.NodeData) < 0)     //CompareTo both element
+            {
+                IFExits(element, Node.LeftTree);          //insert at left tree           
+            }
+            if (element.CompareTo(Node.NodeData) > 0)     //CompareTo both element 
+            {
+                IFExits(element, Node.RightTree);         //insert at right tree
+            }
+            return result;
+            
+        }
+        
     }
 }
